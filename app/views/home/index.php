@@ -24,7 +24,6 @@
       <a href="#beranda" class="active">Beranda</a>
       <a href="#cara-kerja">Cara Kerja</a>
       <a href="#fitur">Fitur</a>
-      <a href="#tentang">Tentang</a>
     </nav>
 
     <!-- Kumpulan Tombol Auth -->
@@ -50,7 +49,7 @@
       <h1>Peminjaman Alat Jadi<br><span>Lebih Cepat dan<br>Terorganisir</span></h1>
       <p>Kelola peminjaman alat dengan mudah, transparan, dan efisien. Semua kebutuhan alat kerja Anda, dalam satu sistem.</p>
       <div class="actions">
-        <a href="<?= URLROOT; ?>/borrowing/create" class="btn btn-yellow"><i class="fa-solid fa-file-pen"></i> &nbsp; Ajukan Peminjaman &nbsp; <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="<?= URLROOT; ?>/auth" class="btn btn-yellow"><i class="fa-solid fa-file-pen"></i> &nbsp; Ajukan Peminjaman &nbsp; <i class="fa-solid fa-arrow-right"></i></a>
         <a href="<?= URLROOT; ?>/tool" class="btn btn-outline">Lihat Alat &nbsp; <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
@@ -117,7 +116,7 @@
         <div class="section-label">Cara Kerja</div>
         <h2 class="section-title">Mudah dalam 5 Langkah</h2>
         <p>Proses peminjaman alat di sistem kami sangat sederhana dan tidak memakan waktu lama.</p>
-        <a href="<?= URLROOT; ?>/borrowing/create" class="btn btn-yellow">Mulai Peminjaman &nbsp; <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="<?= URLROOT; ?>/auth" class="btn btn-yellow"><i class="fa-solid fa-file-pen"></i> &nbsp; Mulai Peminjaman &nbsp; <i class="fa-solid fa-arrow-right"></i></a>
       </div>
       <div class="steps">
         <div class="step"><div class="step-icon"><i class="fa-solid fa-magnifying-glass"></i></div><div class="step-num">1</div><h4>Pilih Alat</h4><p>Cari alat yang Anda butuhkan di katalog.</p></div>
@@ -149,7 +148,7 @@
       <!-- Wrapper Mockup -->
       <div class="mockup" aria-label="Preview dashboard">
         <div class="screen">
-          <img src="<?= URLROOT; ?>/assets/img/apps/app-mockup.png" alt="Preview dashboard Sipeminjam" onerror="this.src='<?= URLROOT; ?>/assets/img/hero-mockup.png'">
+          <img src="<?= URLROOT; ?>/assets/images/app-mockup-1.png" alt="Preview dashboard Sipeminjam" onerror="this.src='<?= URLROOT; ?>/assets/img/hero-mockup.png'">
         </div>
         <div class="phone">
           <div class="fake-phone">
@@ -159,32 +158,20 @@
       </div>
     </div>
   </section>
-
-  <section id="tentang">
-    <div class="container">
-      <div class="cta">
-        <div class="cta-copy">
-          <div class="cta-icon"><i class="fa-solid fa-toolbox"></i></div>
-          <div><small>SIAP MEMULAI?</small><h3>Butuh alat untuk pekerjaanmu?</h3><p>Ajukan peminjaman sekarang dan dapatkan kemudahan dalam setiap prosesnya.</p></div>
-        </div>
-        <a href="<?= URLROOT; ?>/borrowing/create" class="btn btn-yellow">Mulai Peminjaman &nbsp; <i class="fa-solid fa-arrow-right"></i></a>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="brand" href="<?= URLROOT; ?>"><div class="brand-mark"><i class="fa-solid fa-wrench"></i></div><div><div class="brand-name">ALAT<span>KU</span></div><small>Sistem Peminjaman Alat</small></div></a>
+        <a class="brand" href="<?= URLROOT; ?>"><div><div class="brand-name"><img src="<?= URLROOT; ?>/assets/img/logo-white-lengkap.png" alt="" style="height: 70px; object-fit: contain; margin-left: -5px;"></div></div></a>
         <p>Kelola alat, tingkatkan produktivitas.</p>
       </div>
       <div><h4>Navigasi</h4><a href="#beranda">Beranda</a><br><a href="#cara-kerja">Cara Kerja</a><br><a href="#fitur">Fitur</a><br><a href="#tentang">Tentang</a></div>
       <div>
         <h4>Kontak</h4>
         <p>
-          <i class="fa-solid fa-envelope"></i> &nbsp; info@alatku.id<br>
+          <i class="fa-solid fa-envelope"></i> &nbsp; info@SiPeminjam.id<br>
           <i class="fa-solid fa-phone"></i> &nbsp; +62 812 3456 7890<br>
           <i class="fa-solid fa-location-dot"></i> &nbsp; Jl. Industri No. 10, Bandung
         </p>
@@ -198,7 +185,7 @@
         </p>
       </div>
     </div>
-    <div class="copyright"><span>© 2025 ALATKU. Semua hak dilindungi.</span><span>Sistem Peminjaman Alat</span></div>
+    <div class="copyright"><span>© 2025 SiPeminjam. Semua hak dilindungi.</span><span>Sistem Peminjaman Alat</span></div>
   </div>
 </footer>
 

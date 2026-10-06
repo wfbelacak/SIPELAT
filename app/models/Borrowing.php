@@ -40,6 +40,17 @@ class Borrowing {
         return $this->db->resultSet();
     }
 
+    public function getBorrowingHistoryByUser($userId) {
+        $this->db->query('SELECT b.*, u.name as user_name, a.name as approved_by_name 
+                          FROM borrowings b 
+                          JOIN users u ON b.user_id = u.id 
+                          LEFT JOIN users a ON b.approved_by = a.id 
+                          WHERE b.user_id = :user_id AND b.status IN ("SELESAI", "DIBATALKAN")
+                          ORDER BY b.created_at DESC');
+        $this->db->bind(':user_id', $userId);
+        return $this->db->resultSet();
+    }
+
     // Get borrowing by ID
     public function getBorrowingById($id) {
         $this->db->query('SELECT b.*, u.name as user_name, u.username, u.email, u.phone,

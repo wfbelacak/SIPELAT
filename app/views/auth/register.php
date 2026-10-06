@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Login — <?= SITENAME; ?></title>
+<title>Daftar Akun — <?= SITENAME; ?></title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
   
@@ -101,25 +101,26 @@
     width:calc(100% - 58px);
     max-height:270px;
   }
-  .login-panel{
-    padding:52px 66px 30px;
+  .register-panel{
+    padding:36px 66px 30px;
     display:flex;
     flex-direction:column;
     justify-content:center;
+    overflow-y:auto;
   }
-  .login-inner{width:min(100%,390px);margin:0 auto}
+  .register-inner{width:min(100%,390px);margin:0 auto}
   h1{font-size:20px;letter-spacing:-.4px;margin:0 0 10px;font-weight:800}
-  .welcome{font-size:11px;color:#7488a4;margin-bottom:28px}
-  label{display:block;font-size:11px;font-weight:700;margin:0 0 9px;color:#3b5373}
-  .field{margin-bottom:19px}
+  .welcome{font-size:11px;color:#7488a4;margin-bottom:22px}
+  label{display:block;font-size:11px;font-weight:700;margin:0 0 7px;color:#3b5373}
+  .field{margin-bottom:14px}
   .input-wrap{position:relative}
   input.form-control {
     width:100%;
-    height:42px;
+    height:40px;
     border:1px solid #d8e3f0;
     border-radius:5px;
     outline:none;
-    padding:0 39px 0 39px;
+    padding:0 14px 0 39px;
     color:#19365d;
     font:inherit;
     font-size:12px;
@@ -129,7 +130,6 @@
   input.form-control:focus{border-color:#6aa1ff;box-shadow:0 0 0 3px rgba(23,105,255,.10)}
   input.form-control::placeholder{color:#a9b8ca}
   input.form-control.is-invalid { border-color: #dc3545; }
-  .invalid-feedback { color: #dc3545; font-size: 11px; margin-top: 5px; }
 
   .field-icon,.eye{
     position:absolute;top:50%;transform:translateY(-50%);
@@ -138,33 +138,22 @@
   .field-icon{left:13px}
   .eye{right:12px;border:0;background:none;cursor:pointer;padding:3px}
   .field-icon svg,.eye svg{width:15px;height:15px}
-  .options{display:flex;justify-content:space-between;align-items:center;margin:3px 0 20px;font-size:10px}
-  .remember{display:flex;align-items:center;gap:6px;color:#536985}
-  .remember input{width:12px;height:12px;padding:0;accent-color:var(--primary)}
-  a{color:#1769ff;text-decoration:none}
-  .forgot{font-size:10px}
+  a{color:var(--primary);text-decoration:none}
   .btn{
     width:100%;height:42px;border:0;border-radius:5px;
     background:linear-gradient(90deg,#1264E8,#0E4DB5);
     color:white;font-weight:750;font-size:12px;cursor:pointer;
     box-shadow:0 5px 12px rgba(18,100,232,.16);
+    margin-top:6px;
   }
   .btn:active{transform:translateY(1px)}
-  .divider{display:flex;align-items:center;gap:12px;color:#91a1b5;font-size:10px;margin:24px 0 12px}
-  .divider:before,.divider:after{content:"";height:1px;background:#e7edf5;flex:1}
-  .google{
-    height:42px;width:100%;border:1px solid #e0e8f2;border-radius:5px;
-    background:#fff;color:#3b5373;font-size:11px;font-weight:650;
-    display:flex;align-items:center;justify-content:center;gap:9px;cursor:pointer;
-  }
-  .google svg{width:15px;height:15px}
-  .footer{font-size:10px;color:#a0aec0;text-align:center;margin-top:54px}
-  .message{font-size:11px;margin-top:12px;min-height:16px;color:#2d7a52}
-  
-  /* Alert Flash Messages styles using inline CSS to match the style */
+  .footer{font-size:10px;color:#a0aec0;text-align:center;margin-top:30px}
+  .login-link{font-size:11px;text-align:center;margin-top:18px;color:#64748b}
+  .login-link a{font-weight:700}
+
   .alert {
       padding: 10px 15px;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       border: 1px solid transparent;
       border-radius: 4px;
       font-size: 11px;
@@ -187,8 +176,8 @@
     .headline{margin-top:30px;font-size:21px}
     .description{margin-top:10px}
     .scene{left:auto;right:5px;bottom:-8px;width:52%;max-height:210px}
-    .login-panel{padding:42px 32px 30px}
-    .footer{margin-top:42px}
+    .register-panel{padding:32px 32px 30px}
+    .footer{margin-top:24px}
   }
   @media(max-width:430px){
     .brand-panel{min-height:300px}
@@ -208,8 +197,8 @@
         <div class="brand-sub">Sistem Informasi Peminjaman Alat</div>
       </div>
     </div>
-    <div class="headline">Pinjam Alat, Wujudkan<br/>Kegiatan dengan Lebih Mudah</div>
-    <div class="description">Kelola peminjaman alat secara digital,<br/>cepat, dan terintegrasi.</div>
+    <div class="headline">Bergabung dan Mulai<br/>Pinjam Alat dengan Mudah</div>
+    <div class="description">Daftarkan akun Anda untuk mulai<br/>menggunakan sistem peminjaman alat.</div>
     <svg class="scene" viewBox="0 0 520 300" fill="none" aria-label="Ilustrasi laptop, kamera, proyektor dan tanaman">
       <path d="M18 245 390 197l111 31-370 54-113-37Z" fill="#174a91"/>
       <path d="m38 237 340-49 101 26-339 48-102-25Z" fill="#0c3671"/>
@@ -249,45 +238,79 @@
     </svg>
   </section>
 
-  <section class="login-panel">
-    <div class="login-inner">
-      <h1>Selamat Datang!</h1>
-      <div class="welcome">Silakan masuk ke akun Anda untuk melanjutkan.</div>
+  <section class="register-panel">
+    <div class="register-inner">
+      <h1>Buat Akun Baru</h1>
+      <div class="welcome">Lengkapi form di bawah untuk mendaftar.</div>
 
       <?php flash('message'); ?>
 
-      <form action="<?= URLROOT; ?>/auth/login" method="POST">
+      <form action="<?= URLROOT; ?>/auth/register" method="POST">
+        <!-- Nama Lengkap -->
         <div class="field">
-          <label for="email">Email atau Username</label>
+          <label for="name">Nama Lengkap</label>
+          <div class="input-wrap">
+            <span class="field-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </span>
+            <input id="name" name="name" type="text" class="form-control <?= !empty($data['name_err']) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama lengkap" value="<?= $data['name'] ?? ''; ?>" autofocus />
+          </div>
+        </div>
+
+        <!-- Username -->
+        <div class="field">
+          <label for="username">Username</label>
+          <div class="input-wrap">
+            <span class="field-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15.5 12a3.5 3.5 0 1 0-7 0 3.5 3.5 0 0 0 7 0Z"/><path d="M19.43 12.98c.04-.32.07-.65.07-.98s-.03-.66-.07-.98l2.11-1.65a.5.5 0 0 0 .12-.64l-2-3.46a.5.5 0 0 0-.61-.22l-2.49 1a7.03 7.03 0 0 0-1.69-.98l-.38-2.65A.49.49 0 0 0 14 2h-4a.49.49 0 0 0-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1a.5.5 0 0 0-.61.22l-2 3.46a.49.49 0 0 0 .12.64l2.11 1.65c-.04.32-.07.66-.07.98s.03.66.07.98l-2.11 1.65a.5.5 0 0 0-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.39 1.08.73 1.69.98l.38 2.65c.05.24.26.42.49.42h4c.24 0 .44-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.22.08.49 0 .61-.22l2-3.46a.5.5 0 0 0-.12-.64l-2.11-1.65Z"/></svg>
+            </span>
+            <input id="username" name="username" type="text" class="form-control <?= !empty($data['username_err']) ? 'is-invalid' : ''; ?>" placeholder="Masukkan username" value="<?= $data['username'] ?? ''; ?>" />
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="field">
+          <label for="email">Email</label>
           <div class="input-wrap">
             <span class="field-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
             </span>
-            <input id="email" name="username" type="text" class="form-control <?= !empty($data['username_err']) ? 'is-invalid' : ''; ?>" placeholder="Masukkan email atau username" autocomplete="username" value="<?= $data['username'] ?? ''; ?>" autofocus />
+            <input id="email" name="email" type="email" class="form-control <?= !empty($data['email_err']) ? 'is-invalid' : ''; ?>" placeholder="Masukkan email" value="<?= $data['email'] ?? ''; ?>" />
           </div>
         </div>
 
+        <!-- Password -->
         <div class="field">
           <label for="password">Password</label>
           <div class="input-wrap">
             <span class="field-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
             </span>
-            <input id="password" name="password" type="password" class="form-control <?= !empty($data['password_err']) ? 'is-invalid' : ''; ?>" placeholder="Masukkan password" autocomplete="current-password" />
+            <input id="password" name="password" type="password" class="form-control <?= !empty($data['password_err']) ? 'is-invalid' : ''; ?>" placeholder="Minimal 6 karakter" />
             <button class="eye" type="button" id="togglePassword" aria-label="Tampilkan password">
-              <svg id="eyeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
             </button>
           </div>
         </div>
 
-        <div class="options">
-          <a class="forgot" href="#">Lupa password?</a>
+        <!-- Konfirmasi Password -->
+        <div class="field">
+          <label for="confirm_password">Konfirmasi Password</label>
+          <div class="input-wrap">
+            <span class="field-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+            </span>
+            <input id="confirm_password" name="confirm_password" type="password" class="form-control <?= !empty($data['confirm_password_err']) ? 'is-invalid' : ''; ?>" placeholder="Ulangi password" />
+            <button class="eye" type="button" id="toggleConfirm" aria-label="Tampilkan password">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
         </div>
 
-        <button class="btn" type="submit">Masuk</button>
+        <button class="btn" type="submit">Daftar Sekarang</button>
       </form>
 
-      <div style="font-size:11px;text-align:center;margin-top:18px;color:#64748b;">Belum punya akun? <a href="<?= URLROOT; ?>/auth/register" style="font-weight:700;">Daftar di sini</a></div>
+      <div class="login-link">Sudah punya akun? <a href="<?= URLROOT; ?>/auth">Masuk di sini</a></div>
       <div class="footer">&copy; 2026 SiPeminjam. Semua hak dilindungi.</div>
     </div>
   </section>
@@ -295,20 +318,28 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-  const password = document.getElementById('password');
-  const toggle = document.getElementById('togglePassword');
-
-  toggle.addEventListener('click', () => {
-    const visible = password.type === 'text';
-    password.type = visible ? 'password' : 'text';
-    toggle.setAttribute('aria-label', visible ? 'Tampilkan password' : 'Sembunyikan password');
+  document.getElementById('togglePassword').addEventListener('click', () => {
+    const p = document.getElementById('password');
+    p.type = p.type === 'text' ? 'password' : 'text';
+  });
+  document.getElementById('toggleConfirm').addEventListener('click', () => {
+    const c = document.getElementById('confirm_password');
+    c.type = c.type === 'text' ? 'password' : 'text';
   });
 
-  <?php if(!empty($data['username_err']) || !empty($data['password_err'])): ?>
+  <?php
+  $errors = [];
+  if(!empty($data['name_err'])) $errors[] = addslashes($data['name_err']);
+  if(!empty($data['username_err'])) $errors[] = addslashes($data['username_err']);
+  if(!empty($data['email_err'])) $errors[] = addslashes($data['email_err']);
+  if(!empty($data['password_err'])) $errors[] = addslashes($data['password_err']);
+  if(!empty($data['confirm_password_err'])) $errors[] = addslashes($data['confirm_password_err']);
+  if(!empty($errors)):
+  ?>
   Swal.fire({
     icon: 'error',
-    title: 'Login Gagal',
-    text: '<?= !empty($data['username_err']) ? addslashes($data['username_err']) : addslashes($data['password_err']) ?>',
+    title: 'Pendaftaran Gagal',
+    html: '<ul style="text-align:left;font-size:13px;margin:0;padding-left:18px;"><?php foreach($errors as $e): ?><li><?= $e ?></li><?php endforeach; ?></ul>',
     confirmButtonColor: '#1264E8'
   });
   <?php endif; ?>

@@ -29,6 +29,23 @@ class BorrowingController extends Controller {
         $this->view('borrowings/index', $data);
     }
 
+    public function history() {
+        // Only Peminjam needs this specific history view page
+        if (!hasRole([3])) {
+            $this->redirect('borrowing');
+            return;
+        }
+
+        $borrowings = $this->borrowingModel->getBorrowingHistoryByUser($_SESSION['user_id']);
+
+        $data = [
+            'title'      => 'Riwayat Peminjaman',
+            'borrowings' => $borrowings
+        ];
+
+        $this->view('borrowings/history', $data);
+    }
+
     // Show borrowing detail
     public function show($id = null) {
         if (!$id) {

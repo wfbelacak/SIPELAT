@@ -189,15 +189,20 @@
                         </ul>
                     </li>
                     <?php if(isset($_SESSION['user_id'])): ?>
+                    <?php 
+                        $url = $_GET['url'] ?? ''; 
+                        $isBorrowingHistory = (strpos($url, 'borrowing/history') === 0);
+                        $isBorrowingMain = (isActiveMenu('borrowing') && !$isBorrowingHistory);
+                    ?>
                     <li class="dropdown nav-dropdown">
-                        <a href="#" class="<?= isActiveMenu('borrowing') ? 'active' : ''; ?>" data-bs-toggle="dropdown">Peminjaman <i class="bi bi-chevron-down ms-1" style="font-size:10px;"></i></a>
+                        <a href="#" class="<?= $isBorrowingMain ? 'active' : ''; ?>" data-bs-toggle="dropdown">Peminjaman <i class="bi bi-chevron-down ms-1" style="font-size:10px;"></i></a>
                         <ul class="dropdown-menu design-dropdown">
                             <li><a class="dropdown-item" href="<?= URLROOT; ?>/borrowing/create"><i class="bi bi-journal-plus"></i>Ajukan Peminjaman</a></li>
                             <li><a class="dropdown-item" href="<?= URLROOT; ?>/borrowing"><i class="bi bi-journal-text"></i>Peminjaman Saya</a></li>
                         </ul>
                     </li>
                     <li><a href="<?= URLROOT; ?>/return" class="<?= isActiveMenu('return') ? 'active' : ''; ?>">Pengembalian</a></li>
-                    <li><a href="<?= URLROOT; ?>/borrowing" class="<?= isActiveMenu('borrowing') ? 'active' : ''; ?>">Riwayat</a></li>
+                    <li><a href="<?= URLROOT; ?>/borrowing/history" class="<?= $isBorrowingHistory ? 'active' : ''; ?>">Riwayat</a></li>
                     <?php endif; ?>
                 </ul>
             </div>

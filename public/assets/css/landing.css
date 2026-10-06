@@ -642,30 +642,13 @@ header.topbar {
 }
 
 .mockup .fake-phone {
-  width: 150px;
+  width: 140px;
   height: 300px;
-  background: #0f172a;
-  border: 6px solid #334155;
-  border-radius: 28px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   position: relative;
 }
 
 /* Notch iPhone Mini */
-.mockup .fake-phone::before {
-  content: '';
-  position: absolute;
-  top: 6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 45px;
-  height: 10px;
-  background: #334155;
-  border-radius: 10px;
-  z-index: 12;
-}
-
 .mockup .fake-phone img {
   width: 100%;
   height: 100%;
@@ -676,74 +659,8 @@ header.topbar {
 }
 
 /* ==========================================================================
-   9. CTA & FOOTER
+   9. FOOTER
    ========================================================================== */
-#tentang {
-  padding-top: 0;
-}
-
-.cta {
-  background: #191e23;
-  color: #fff;
-  border-radius: 10px;
-  padding: 25px 34px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  overflow: hidden;
-  position: relative;
-}
-
-.cta::after {
-  content: "";
-  position: absolute;
-  right: -30px;
-  top: -50px;
-  width: 250px;
-  height: 250px;
-  background: rgba(255, 255, 255, 0.025);
-  border-radius: 50%;
-}
-
-.cta-copy {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  position: relative;
-  z-index: 1;
-}
-
-.cta-icon {
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  background: var(--yellow);
-  color: #111;
-  display: grid;
-  place-items: center;
-  font-size: 22px;
-  flex: none;
-}
-
-.cta small {
-  color: var(--yellow);
-  font-size: 8px;
-  font-weight: 900;
-  letter-spacing: 1.5px;
-}
-
-.cta h3 {
-  margin: 3px 0 5px;
-  font-size: 17px;
-}
-
-.cta p {
-  margin: 0;
-  color: #b9bec2;
-  font-size: 9px;
-}
-
 .footer {
   background: #191e23;
   color: #fff;

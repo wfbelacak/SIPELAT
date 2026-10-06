@@ -1,0 +1,66 @@
+<?php $this->view('layouts/header', $data); ?>
+<div class="design-page-title"><h1>Riwayat Peminjaman</h1></div>
+<div class="history-tabs">
+    <a class="active" href="#" data-status="">Semua</a>
+    <a href="#" data-status="SELESAI">Selesai</a>
+    <a href="#" data-status="DIBATALKAN">Dibatalkan</a>
+</div>
+<section class="history-card">
+    <div class="history-toolbar">
+        <div class="search-design"><i class="bi bi-search"></i><input class="form-control" id="borrowSearch" placeholder="Cari nomor peminjaman, alat, atau tujuan..."></div>
+        <input class="form-control" id="borrowDate" type="date">
+        <button class="btn btn-primary" id="borrowFilter"><i class="bi bi-funnel"></i> Filter</button>
+    </div>
+    <div class="table-responsive">
+        <table class="history-table">
+            <thead>
+                <tr><th>No. Peminjaman</th><th>Tanggal Pinjam</th><th>Jatuh Tempo</th><th>Alat</th><th>Jumlah</th><th>Status</th><th>Aksi</th></tr>
+            </thead>
+            <tbody id="borrowRows">
+                <?php if(!empty($data['borrowings'])): foreach($data['borrowings'] as $borrow): 
+                    $cls = 'status-done'; 
+                    if($borrow->status === 'MENUNGGU') $cls = 'status-wait'; 
+                    elseif(in_array($borrow->status, ['DIPINJAM','DISETUJUI'])) $cls = 'status-active'; 
+                    elseif(in_array($borrow->status, ['DIBATALKAN','DITOLAK'])) $cls = 'status-cancel'; 
+                ?>
+                <tr data-status="<?= $borrow->status; ?>" data-date="<?= $borrow->borrow_date; ?>" data-search="<?= htmlspecialchars(strtolower($borrow->code.' '.$borrow->purpose)); ?>">
+                    <td><strong><?= htmlspecialchars($borrow->code); ?></strong></td>
+                    <td><?= formatDate($borrow->borrow_date,'short'); ?></td>
+                    <td><?= formatDate($borrow->due_date,'short'); ?></td>
+                    <td><?= htmlspecialchars(mb_strimwidth($borrow->purpose ?: 'Alat',0,28,'...')); ?></td>
+                    <td>1</td>
+                    <td><span class="status-pill <?= $cls; ?>"><?= htmlspecialchars(ucwords(strtolower(str_replace('_',' ',$borrow->status)))); ?></span></td>
+                    <td><a class="view-link" href="<?= URLROOT; ?>/borrowing/show/<?= $borrow->id; ?>">Lihat</a></td>
+                </tr>
+                <?php endforeach; else: ?>
+                <tr><td colspan="7" style="text-align:center;padding:28px;color:#8395ab">Belum ada riwayat peminjaman.</td></tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+    <div class="pagination-design"><a href="#">‹</a><a class="active" href="#">1</a><a href="#">2</a><a href="#">›</a></div>
+</section>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+    const q=document.getElementById('borrowSearch'),d=document.getElementById('borrowDate'),rows=[...document.querySelectorAll('#borrowRows tr[data-status]')];
+    let currentStatus = '';
+    function filter(){
+        rows.forEach(r=>{
+            const ok=(!currentStatus||r.dataset.status===currentStatus)&&(!q.value||r.dataset.search.includes(q.value.toLowerCase()))&&(!d.value||r.dataset.date===d.value);
+            r.style.display=ok?'':'none'
+        });
+    }
+    q.addEventListener('input',()=>filter());
+    d.addEventListener('change',()=>filter());
+    document.getElementById('borrowFilter').addEventListener('click',()=>filter());
+    
+    document.querySelectorAll('.history-tabs a[data-status]').forEach(a=>a.addEventListener('click',e=>{
+        e.preventDefault();
+        document.querySelectorAll('.history-tabs a').forEach(x=>x.classList.remove('active'));
+        a.classList.add('active');
+        currentStatus = a.dataset.status;
+        filter();
+    }));
+});
+</script>
+<?php $this->view('layouts/footer'); ?>
